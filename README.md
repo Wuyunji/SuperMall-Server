@@ -1,2 +1,7 @@
-# SuperMall-Server
-This is a server for SuperMall
+# First 
+### you need to connect to MongoDB
+
+# Then
+### Getting Started with
+
+### `node server.js`
