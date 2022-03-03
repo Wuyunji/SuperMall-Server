@@ -1,3 +1,9 @@
+/**
+ * 把下面的 localhost 改成本地的
+ * win+R --> 输入cmd后回车 --> 输入ipconfig后回车 --> 找到IPv4地址 --> 修改localhost
+ */
+// 设置主机地址
+const localhost = '192.168.66.167'
 // 引入express库
 const express = require('express')
 // 使用express
@@ -8,22 +14,22 @@ app.disable('x-powered-by')
 // app.set('view engine', 'ejs')
 // app.set('views', './views')
 // 引入db模块，用于连接数据库
-let db = require('./db/db')
+const db = require('./db/db')
 // 使用内置中间件用于解析post的urlencoded参数
 app.use(express.urlencoded({extended:true}))
+// 设置端口号
+const port = 8000
 // 引入UI路由器
 const UIRouter = require('./router/UIRouer')
 // 引入登录注册路由器
 const loginRegisterRouter = require('./router/loginRegisterRouter')
-// 设置端口号
-let port = 8000
 // 引入express-session模块
 const session = require('express-session')
 // 引入connect-mongo 用于session持久化
 const MongoStore = require('connect-mongo')
 // 设置允许跨域
 app.all('*', function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://192.168.1.199:3000');
+  res.header('Access-Control-Allow-Origin', `http://${localhost}:3000`);
   res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With');
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Credentials', 'true');//允许携带cookie
