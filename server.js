@@ -1,9 +1,9 @@
-/**
+﻿/**
  * 把下面的 localhost 改成本地的
  * win+R --> 输入cmd后回车 --> 输入ipconfig后回车 --> 找到IPv4地址 --> 修改localhost
  */
 // 设置主机地址
-const localhost = '192.168.66.167'
+const localhost = '192.168.1.199'
 // 引入express库
 const express = require('express')
 // 使用express
