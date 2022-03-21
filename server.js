@@ -1,10 +1,4 @@
-﻿/**
- * 把下面的 localhost 改成本地的
- * win+R --> 输入cmd后回车 --> 输入ipconfig后回车 --> 找到IPv4地址 --> 修改localhost
- */
-// 设置主机地址
-const localhost = '192.168.1.199'
-// 引入express库
+﻿// 引入express库
 const express = require('express')
 // 使用express
 const app = express()
@@ -29,7 +23,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 // 设置允许跨域
 app.all('*', function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', `http://${localhost}:3000`);
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With');
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Credentials', 'true');//允许携带cookie
@@ -43,7 +37,7 @@ app.use(session({
   saveUninitialized: false,  //是否在存储内容之前创建session会话 默认true
   resave: true, //是否在请求时强制重新保存session
   store: MongoStore.create({
-    mongoUrl:'mongodb://localhost:27017/session_container',
+    mongoUrl:'mongodb://localhost:27017/supermall_session',
     touchAfter: 24 * 3600
   }),
   cookie: {
